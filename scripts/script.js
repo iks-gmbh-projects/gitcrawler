@@ -92,7 +92,7 @@
         .html((d, i) => d.label);
     // Build Legend
 
-    d3.json("flare.json").then(function (root, error) {
+    d3.json("./files/flare.json").then(function (root, error) {
         let current_depth = 0;
         focus = root;
         var pack = d3.pack().padding(5).size([innerDiameter, innerDiameter]);
