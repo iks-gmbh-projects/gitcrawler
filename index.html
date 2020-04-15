@@ -1,0 +1,29 @@
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h3>Visualisierung des Repositories <span class="highlight">github.com/vs-code</span></h3>
+<p>Die gezeigt Grafik zeigt den Codestand des Repositories <a href="https://github.com/microsoft/vscode">vs-code</a>.
+    <br>
+    Über die Selectionbox lässt sich die Einfärbung der einzelnen Blasen vornehmen, entweder nach
+        <ul>
+    <li>Anzahl der Autoren</li>
+    <li>%-Anteil der Codezeilen älter als 6 Monate</li>
+    </ul>
+</p>
+<p>
+Über die Legende lässt sich bei Auswahl <i>Anzahl der Autoren</i> die Ansicht zusätzlich filtern
+</p>
+<div>
+    <label for="selection">Wert für Einfärbung auswählen:</label>
+    <select id="selection">
+        <option value="authors">Anzahl Autoren</option>
+        <option value="code">% alter Code</option>
+    </select>
+</div>
+<div id="viz-container"></div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="script.js"></script>
+</body>
