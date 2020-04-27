@@ -1,8 +1,21 @@
 
+    const modal = document.getElementById("navigation-modal");
+
+    window.addEventListener("click",function(event){
+      if(event.target == modal) modal.style.display = "none";
+    });
+
+    function showModal(){
+        modal.style.display = "block";
+    }
+
+    function closeModal(){
+        modal.style.display = "none";
+    }
     let nodes;
     let focus;
     let margin = 50,
-        outerDiameter = 800,
+        outerDiameter = window.innerHeight,
         innerDiameter = outerDiameter - margin - margin;
 
     // Scales
@@ -30,7 +43,7 @@
 
     // Build SVG Container
     var svg = d3.select("div#viz-container").append("svg")
-        .attr("width", 1200)
+        .attr("width", outerDiameter)
         .attr("height", outerDiameter)
         .append("g")
         .attr("class", "svg-container")
@@ -41,7 +54,7 @@
     let keys_authors = [
         {label: "1 Autor", value: 1},
         {label: "2 Autoren", value: 2},
-        {label: "2 oder mehr Autoren", value: 3}
+        {label: "2+ Autoren", value: 3}
     ];
 
     let legend_svg = svg
@@ -50,7 +63,7 @@
 
     let legend_items_container = legend_svg
         .append("g")
-        .attr("transform", `translate(${(outerDiameter - margin) * 0.85},${margin})`);
+        .attr("transform", `translate(${(outerDiameter - margin) * 0.8},${margin})`);
 
     let legend_items = legend_items_container.selectAll("legend-items")
         .data(keys_authors)
@@ -122,6 +135,12 @@
                 return d.children ? color(d.depth) : color_flag_authors(d.data.author_count);
             })
             .on("click", function (d) {
+                if(d3.event.altKey){
+                    return zoom(d.parent);
+                }
+                if(d3.event.ctrlKey || d3.event.metaKey){
+                    return zoom(root_node);
+                }
                 return zoom(focus === d ? root_node : d);
             })
             .append("title").html(function (d) {

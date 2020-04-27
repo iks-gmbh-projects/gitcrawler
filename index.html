@@ -2,8 +2,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
+<!--
 <h3>Visualisierung des Repositories <span class="highlight">github.com/vs-code</span></h3>
 <p>Die gezeigt Grafik zeigt den Codestand des Repositories <a href="https://github.com/microsoft/vscode">vs-code</a>.
     <br>
@@ -16,6 +16,21 @@
 <p>
 Über die Legende lässt sich bei Auswahl <i>Anzahl der Autoren</i> die Ansicht zusätzlich filtern
 </p>
+-->
+<div id="navigation-modal" class="modal">
+    <div class="modal-content">
+        <h3>Hinweise zur Navigation</h3>
+        <p>Die Visualisierung zeigt Grafik zeigt den Codestand des Repositories <a href="https://github.com/microsoft/vscode">https://github.com/microsoft/vscode</a></p>
+        <p>Über die Auswahlbox lässt lässt sich die Einfärbung der einzelnen Kreise vornehmen, entweder nach:</p>
+        <ul>
+            <li>Anzahl der Autoren einer Datei</li>
+            <li>prozentualer Anteil der Codezeilen älter als 6 Monate</li>
+        </ul>
+        <p>Zusätzlich lässt sich über die Legende filtern, welche Kreise angezeigt werden.</p>
+        <button id="button-close-modal" onclick="closeModal()">Fenster schließen</button>
+    </div>
+</div>
+<button id="toggle-navigation" class="btn-link" onclick="showModal()">Hinweise zur Navigation</button>
 <div>
     <label for="selection">Wert für Einfärbung auswählen:</label>
     <select id="selection">
