@@ -1,7 +1,8 @@
 
     const modal = document.getElementById("navigation-modal");
 
-    window.addEventListener("click",function(event){
+    window.addEventListener("click",function(event) {
+
       if(event.target == modal) modal.style.display = "none";
     });
 
@@ -112,7 +113,7 @@
         nodes = pack(d3.hierarchy(root)
             .sum(d => d.size)).descendants();
         root_node = nodes[0];
-        console.log(root_node);
+
         d3.select(window).on("click", function () {
             zoom(root_node);
         });
@@ -151,9 +152,9 @@
             }
         });
 
-        d3.select("#selection").on("change", function (e) {
+        d3.select("#selection_coloring").on("change", function (e) {
             var selection = d3.select(this).property("value");
-           //toggleLegend(selection);
+            //toggleLegend(selection);
             if (selection === "code") {
                 d3.selectAll("circle.node").style("fill", function (d) {
                     return d.children ? color(d.depth) : color_flag_code(d.data.fraction_of_lines_older_6_months);
@@ -193,7 +194,6 @@
             var focus0 = focus;
             focus = d;
             current_depth = d.depth;
-            console.log(current_depth);
             var k = innerDiameter / d.r / 2;
             x.domain([d.x - d.r, d.x + d.r]);
             y.domain([d.y - d.r, d.y + d.r]);
@@ -207,7 +207,7 @@
             d3.select(".legend-box").attr("display", () => focus === root_node ? "inline" : "none");
 
             //transform all nodes & labels with the current x/y-domain (zoom)
-            var transition = d3.selectAll("text.node-label, circle.node:not(.filtered)").transition()
+            var transition = d3.selectAll("text.node-label, circle.node:not(.filtered)").transition().duration(750)
                 .attr("transform", function (d) {
                     return "translate(" + x(d.x) + "," + y(d.y) + ")";
                 });

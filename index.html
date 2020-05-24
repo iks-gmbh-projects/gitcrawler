@@ -1,22 +1,8 @@
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!--
-<h3>Visualisierung des Repositories <span class="highlight">github.com/vs-code</span></h3>
-<p>Die gezeigt Grafik zeigt den Codestand des Repositories <a href="https://github.com/microsoft/vscode">vs-code</a>.
-    <br>
-    Über die Selectionbox lässt sich die Einfärbung der einzelnen Blasen vornehmen, entweder nach
-        <ul>
-    <li>Anzahl der Autoren</li>
-    <li>%-Anteil der Codezeilen älter als 6 Monate</li>
-    </ul>
-</p>
-<p>
-Über die Legende lässt sich bei Auswahl <i>Anzahl der Autoren</i> die Ansicht zusätzlich filtern
-</p>
--->
 <div id="navigation-modal" class="modal">
     <div class="modal-content">
         <h3>Hinweise zur Navigation</h3>
@@ -32,13 +18,13 @@
 </div>
 <button id="toggle-navigation" class="btn-link" onclick="showModal()">Hinweise zur Navigation</button>
 <div>
-    <label for="selection">Wert für Einfärbung auswählen:</label>
-    <select id="selection">
+    <label for="selection_coloring">Wert für Einfärbung auswählen:</label>
+    <select id="selection_coloring">
         <option value="authors">Anzahl Autoren</option>
         <option value="code">% alter Code</option>
     </select>
 </div>
 <div id="viz-container"></div>
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="scripts/script.js"></script>
+<script src="scripts/d3.v5.min.js"></script>
+<script src="scripts/main.js"></script>
 </body>
