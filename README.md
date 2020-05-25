@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Der Crawler wird anschließend durch Ausführen der `crawl.py` gestartet.
 
 ```
-python crawl.py <github-URL>
+python src/crawl.py <github-URL>
 ```
 Der Crawler klont das unter <github-URL> angegebene Repository in den Ordner `temp` und erstellt anschließend die zur
 Visualisierung notwendigen Dateien.
